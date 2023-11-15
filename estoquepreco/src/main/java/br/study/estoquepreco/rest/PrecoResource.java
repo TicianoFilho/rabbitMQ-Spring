@@ -23,9 +23,15 @@ public class PrecoResource {
     private static Logger logger = LoggerFactory.getLogger(PrecoResource.class);
     @PutMapping
     private ResponseEntity editPreco(PrecoDTO precoDTO) {
-        logger.info(" --- sending message from peco to rabbitMQ ---");
-        this.senderService.sendMessage(RabbitMQConstants.QUEUE_PRECO, precoDTO);
-        logger.info(" --- sending message from preco to rabbitMQ (SUCCESS) ---");
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            logger.info(" --- sending message from peco to rabbitMQ ---");
+            this.senderService.sendMessage(RabbitMQConstants.QUEUE_PRECO, precoDTO);
+            logger.info(" --- sending message from preco to rabbitMQ (SUCCESS) ---");
+            return new ResponseEntity(HttpStatus.OK);
+        } catch(Exception e) {
+            logger.error(" --- sending message from preco to rabbitMQ (FAILED) ---");
+            e.getMessage();
+        }
+        return null;
     }
 }
