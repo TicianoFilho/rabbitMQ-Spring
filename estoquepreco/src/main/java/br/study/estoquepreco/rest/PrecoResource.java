@@ -1,9 +1,8 @@
 package br.study.estoquepreco.rest;
 
-import br.study.estoquepreco.constants.RabbitMQConstants;
-import br.study.estoquepreco.dto.EstoqueDTO;
-import br.study.estoquepreco.dto.PrecoDTO;
 import br.study.estoquepreco.service.SenderService;
+import org.librabbitmq.constants.RabbitMQConstants;
+import org.librabbitmq.dto.PrecoDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

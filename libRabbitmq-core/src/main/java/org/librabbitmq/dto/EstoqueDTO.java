@@ -1,4 +1,4 @@
-package br.study.estoquepreco.dto;
+package org.librabbitmq.dto;
 
 import java.io.Serializable;
 
